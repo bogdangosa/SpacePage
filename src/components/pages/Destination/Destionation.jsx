@@ -1,4 +1,5 @@
 import React,{useState} from "react";
+import {motion} from 'framer-motion'
 import './Destionation.css';
 import moon_img from '../../../assets/destination/image-moon.png';
 import mars_img from '../../../assets/destination/image-mars.png';
@@ -50,10 +51,32 @@ const Destionation = () =>{
                 break;
         }
 
-    }    
+    }  
+    
+    const PageVariants = {
+        in: {
+            opacity:1,
+            y:0
+        },
+        out: {
+            opacity:0,
+            y: "-100vh"
+        }
+    }
+    const PageTransition = {
+        type: "tween",
+        ease: "anticipate",
+        duration: 1
+    }
+    
     
     return(
-        <div className="Destionation">
+        <motion.div className="Destionation"
+            initial="out"
+            animate="in"
+            exit="out"
+            variants={PageVariants}
+            transition={PageTransition}>
             <div className="planet-container">
                 <h2> <span className="grey">01</span> Pick your destination</h2>
                 <img src={CurentPlanetImage} className="image-planet"></img>
@@ -85,7 +108,7 @@ const Destionation = () =>{
             </div>
             
 
-        </div>
+        </motion.div>
     );
 }
 

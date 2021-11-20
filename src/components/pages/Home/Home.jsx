@@ -1,11 +1,33 @@
 import React from "react";
+import {motion} from 'framer-motion'
 import './Home.css';
 
 const Home = () =>{
+
+    const PageVariants = {
+        in: {
+            opacity:1,
+            y:"0"
+        },
+        out: {
+            opacity:0,
+            y: "-100vh"
+        }
+    }
+    const PageTransition = {
+        type: "tween",
+        ease: "anticipate",
+        duration: 1
+    }
     
     
     return(
-        <div className="Home">
+        <motion.div className="Home"
+            initial="out"
+            animate="in"
+            exit="out"
+            variants={PageVariants}
+            transition={PageTransition}>
             <div className="home-text-section">
                 <h3>So, you want to travel to</h3>
                 <h1>Space</h1>
@@ -16,7 +38,7 @@ const Home = () =>{
             <div className="home-cta">
                 <p className="home-cta-text">Explore</p>
             </div>
-        </div>
+        </motion.div>
     );
 }
 

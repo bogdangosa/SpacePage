@@ -10,6 +10,7 @@
     background: url('../../../assets/home/background-home-desktop.jpg') no-repeat center;
     background-size: cover;
     align-items: flex-end;
+    overflow: hidden;
 }
 .home-text-section{
     width: 40%;

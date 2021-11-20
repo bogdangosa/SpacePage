@@ -1,4 +1,5 @@
 import React,{useState} from "react";
+import {motion} from 'framer-motion'
 import './Crew.css';
 import Crew_Info from "./Crew_info";
 import douglas_img from '../../../assets/crew/image-douglas-hurley.png';
@@ -21,9 +22,30 @@ const Crew = () =>{
     const ChangeCrew = (next_crew_id) =>{
         SetCrewId(next_crew_id);
     }
+
+    const PageVariants = {
+        in: {
+            opacity:1,
+            y:0
+        },
+        out: {
+            opacity:0,
+            y: "-100vh"
+        }
+    }
+    const PageTransition = {
+        type: "tween",
+        ease: "anticipate",
+        duration: 1
+    }
     
     return(
-        <div className="Crew">
+        <motion.div className="Crew"
+            initial="out"
+            animate="in"
+            exit="out"
+            variants={PageVariants}
+            transition={PageTransition}>
             <h2 className="crew-title"> <span className="grey">02</span> Meet your crew</h2>
 
             <Crew_Info job={CrewJobs[CrewId]} name={CrewNames[CrewId]} text={CrewText[CrewId]}/>
@@ -39,7 +61,7 @@ const Crew = () =>{
             <img src={CrewImg[CrewId]} alt="no image" className="crew-img"></img>
 
 
-        </div>
+        </motion.div>
     );
 }
 

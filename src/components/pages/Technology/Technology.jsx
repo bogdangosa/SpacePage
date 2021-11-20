@@ -1,4 +1,5 @@
 import React,{useState} from "react";
+import {motion} from 'framer-motion'
 import './Technology.css';
 import rocket_img from '../../../assets/technology/image-launch-vehicle-portrait.jpg';
 import port_img from '../../../assets/technology/image-spaceport-portrait.jpg';
@@ -13,9 +14,32 @@ const Technology = () =>{
                                      "A spaceport or cosmodrome is a site for launching (or receiving) spacecraft, by analogy to the seaport for ships or airport for aircraft. Based in the famous Cape Canaveral, our spaceport is ideally situated to take advantage of the Earth’s rotation for launch.",
                                      "A space capsule is an often-crewed spacecraft that uses a blunt-body reentry capsule to reenter the Earth's atmosphere without wings. Our capsule is where you'll spend your time during the flight. It includes a space gym, cinema, and plenty of other activities to keep you entertained.");
     const TechnologyImages = new Array(rocket_img,port_img,capsule_img);
+
+    
+    const PageVariants = {
+        in: {
+            opacity:1,
+            y:0
+        },
+        out: {
+            opacity:0,
+            y: "-100vh"
+        }
+    }
+    const PageTransition = {
+        type: "tween",
+        ease: "anticipate",
+        duration: 1
+    }
     
     return(
-        <div className="Technology">
+        <motion.div className="Technology"
+            initial="out"
+            animate="in"
+            exit="out"
+            variants={PageVariants}
+            transition={PageTransition}>
+                
             <h2 className="technology-title"> <span className="grey">03</span>Space Launch 101</h2>
             <div className="technology-info-container">
                 <div className="technology-circle-btns-container">
@@ -29,7 +53,7 @@ const Technology = () =>{
                 <img src={TechnologyImages[TechnologyId]} alt="no image" className="technology-img"></img>
             </div>
 
-        </div>
+        </motion.div>
     );
 }
 
