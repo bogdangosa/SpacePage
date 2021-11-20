@@ -1,0 +1,26 @@
+.Technology_Info{
+    width: 40%;
+    color:#fff;
+}
+
+.technology_subtitle{
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 200;
+    letter-spacing: 0.2rem;
+    color: #D0D6F9;
+    margin-bottom: 0.5rem;
+}
+
+.technology_title{
+    text-transform: uppercase;
+    font-size: 4rem;
+    font-family: 'Bellefair', serif;
+    font-weight: 400;
+}
+
+.technology_text{
+    width: 80%;
+    color: #D0D6F9;
+    line-height: 1.7rem;
+}

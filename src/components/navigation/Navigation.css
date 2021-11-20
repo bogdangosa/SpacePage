@@ -1,0 +1,74 @@
+.Navigation{
+    box-sizing: border-box;
+    padding: 1.5rem 0 1.5rem 5%;
+    position: fixed;
+    height:8rem;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo{
+    height: 50%;
+}
+
+.nav-center-line{
+    width: 35%;
+    height: 1px;
+    background: #979797;
+    position: absolute;
+    top:50%;
+    left:35%;
+    transform: translate(-50%,-50%);
+    z-index: 12;
+
+}
+
+.nav-links{
+    background:hsla(0, 0%, 100%, 0.2);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    color: #fff;
+    padding: 0 10% 0 3rem;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+
+
+.nav-link{
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+    margin-left: 3rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.nav-link:hover .nav-link-line{
+    opacity: 0.3;
+}
+
+.bold-nr{
+    font-weight: 700;
+    margin-right: 0.5rem;
+    letter-spacing: 0.1rem;
+}
+
+
+.nav-link-line{
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    transition: 1s;
+}
+.visible{
+    opacity: 1;
+}

@@ -1,0 +1,28 @@
+.Crew-Info{
+    width: 50%;
+    height: auto;
+    color: #fff;
+}
+
+.crew-job{
+    text-transform: uppercase;
+    color:#717379;
+    font-size: 2rem;
+    font-weight: 400;
+    font-family: 'Bellefair', serif;
+    padding-bottom: 0.8rem;
+}
+
+.crew-name{
+    text-transform: uppercase;
+    font-size: 3rem;
+    font-weight: 400;
+    font-family: 'Bellefair', serif;
+    padding-bottom: 1rem;
+}
+
+.crew-text{
+    color:#D0D6F9;
+    line-height: 1.8rem;
+    width: 75%;
+}

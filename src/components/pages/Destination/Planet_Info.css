@@ -1,0 +1,48 @@
+.Planet_Info{
+    height: 45vh;
+    width: 100%;
+}
+
+.planet-name{
+    font-size: 7rem;
+    margin-top: 2rem;
+    margin-right: 1rem;
+    text-transform: uppercase;
+    font-family: 'Bellefair', serif;
+    font-weight: 300;
+}
+.planet-text{
+    color: #D0D6F9;
+    padding-bottom: 3rem;
+}
+
+
+.planet-info-line{
+    width: 100%;
+    height: 1px;
+    background: #D0D6F9;
+    margin-bottom: 1.5rem;
+}
+
+.planet-stats-container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.stat-title{
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 200;
+    letter-spacing: 0.1rem;
+    color: #D0D6F9;
+    margin-bottom: 0.5rem;
+}
+
+.stat-value{
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    font-family: 'Bellefair', serif;
+    letter-spacing: 0.1rem;
+
+}
