@@ -42,3 +42,47 @@
 .circle-active{
     background: #fff;
 }
+
+.crew-line{
+    display: none;
+}
+
+@media only screen and (max-width: 700px) {
+    .Crew{
+        height: auto;
+        background: url('../../../assets/crew/background-crew-mobile.jpg') no-repeat center;
+        background-size: cover;
+        flex-direction: column-reverse;
+        align-items: center;
+        padding:30vh 10% 10vh 10%;
+    }
+    .crew-line{
+        display: block;
+        width: 100%;
+        height: 1px;
+        background: #979797;
+        margin-bottom: 2rem;
+    }
+    .crew-img{
+        position: relative;
+        height: 40vh;
+        right: 0;
+    }
+    
+    .carousel-menu{
+        margin-bottom: 2rem;
+    }
+    .carousel-circle{
+        margin:0 0.7rem;
+    }
+    .crew-title{
+        position: absolute;
+        font-size: 1.2rem;
+        letter-spacing: 0.2rem;
+        padding:0 10%;
+        top: 20vh;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+}

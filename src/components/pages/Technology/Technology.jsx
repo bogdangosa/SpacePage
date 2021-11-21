@@ -4,6 +4,9 @@ import './Technology.css';
 import rocket_img from '../../../assets/technology/image-launch-vehicle-portrait.jpg';
 import port_img from '../../../assets/technology/image-spaceport-portrait.jpg';
 import capsule_img from '../../../assets/technology/image-space-capsule-portrait.jpg';
+import rocket_mobile_img from '../../../assets/technology/image-launch-vehicle-landscape.jpg';
+import port_mobile_img from '../../../assets/technology/image-spaceport-landscape.jpg';
+import capsule_mobile_img from '../../../assets/technology/image-space-capsule-landscape.jpg';
 import Technology_Info from "./Technology_Info";
 
 const Technology = () =>{
@@ -14,6 +17,7 @@ const Technology = () =>{
                                      "A spaceport or cosmodrome is a site for launching (or receiving) spacecraft, by analogy to the seaport for ships or airport for aircraft. Based in the famous Cape Canaveral, our spaceport is ideally situated to take advantage of the Earth’s rotation for launch.",
                                      "A space capsule is an often-crewed spacecraft that uses a blunt-body reentry capsule to reenter the Earth's atmosphere without wings. Our capsule is where you'll spend your time during the flight. It includes a space gym, cinema, and plenty of other activities to keep you entertained.");
     const TechnologyImages = new Array(rocket_img,port_img,capsule_img);
+    const TechnologyImagesMobile = new Array(rocket_mobile_img,port_mobile_img,capsule_mobile_img);
 
     
     const PageVariants = {
@@ -42,6 +46,8 @@ const Technology = () =>{
                 
             <h2 className="technology-title"> <span className="grey">03</span>Space Launch 101</h2>
             <div className="technology-info-container">
+                <img src={TechnologyImagesMobile[TechnologyId]} alt="no image" className="technology-img-mobile"></img>
+
                 <div className="technology-circle-btns-container">
                     <div className={TechnologyId==0 ? "technology-circle-btn technology-circle-btn-active":"technology-circle-btn"} onClick={()=>SetTechnologyId(0)}><p>1</p></div>
                     <div className={TechnologyId==1 ? "technology-circle-btn technology-circle-btn-active":"technology-circle-btn"} onClick={()=>SetTechnologyId(1)}><p>2</p></div>

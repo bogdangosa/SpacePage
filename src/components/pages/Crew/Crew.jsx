@@ -56,9 +56,11 @@ const Crew = () =>{
                 <div className={CrewId==2 ?"carousel-circle circle-active":"carousel-circle"} onClick={()=>ChangeCrew(2)}></div>
                 <div className={CrewId==3 ?"carousel-circle circle-active":"carousel-circle"} onClick={()=>ChangeCrew(3)}></div>
             </div>
-
+            
+            <div className="crew-line"></div>
 
             <img src={CrewImg[CrewId]} alt="no image" className="crew-img"></img>
+
 
 
         </motion.div>

@@ -36,6 +36,7 @@
 }
 
 .home-cta{
+    position: relative;
     background: #fff;
     color: #000;
     z-index: 1;
@@ -49,14 +50,47 @@
     justify-content: center;
     cursor: pointer;
 }
+.home-cta-bg{    
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    transition: 1s;
+    width: 15vw;
+    height: 15vw;
+    background: #fff;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.home-cta-hover{
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    transition: 1s ease-out;
+    width: 15vw;
+    height: 15vw;
+    background: #979797;
+    border-radius: 50%;
+    opacity: 0.3;
+    z-index: 1;
+}
+.home-cta:hover .home-cta-hover{
+    width: 22vw;
+    height: 22vw;
+}
+
 .home-cta-text{
     text-transform: uppercase;
     font-size: 2rem;
     font-family: 'Bellefair', serif;
+    z-index: 2;
 }
 
 @media only screen and (max-width: 700px) {
     .Home{
+        min-height: 100vh;
         padding: 30% 10% 10% 10%;
         flex-direction: column;
         align-items: center;
@@ -78,11 +112,15 @@
     }
     .home-text-section{
         text-align: center;
+        padding-bottom: 3rem;
     }
 
     .home-cta{
-        width: 50vw;
-        height: 50vw;
+        width: 40vw;
+        height: 40vw;
+    }
+    .home-cta-text{
+        font-size: 1.5rem;
     }
 
 }

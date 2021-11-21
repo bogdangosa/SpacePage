@@ -36,7 +36,9 @@ const Home = () =>{
                 because we’ll give you a truly out of this world experience!</p>
             </div>
             <div className="home-cta">
+                <div className="home-cta-bg"></div>
                 <p className="home-cta-text">Explore</p>
+                <div className="home-cta-hover"></div>
             </div>
         </motion.div>
     );
