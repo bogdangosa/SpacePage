@@ -46,3 +46,33 @@
     letter-spacing: 0.1rem;
 
 }
+
+@media only screen and (max-width: 700px) {
+    .Planet_Info{
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .planet-name{
+        font-size: 4rem;
+        margin-right: 0;
+    }    
+    .planet-text{
+        text-align: center;
+    }
+    .planet-stats-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .stat-title{
+        text-align: center;
+    }
+    .stat-value{
+        text-align: center;
+        padding-bottom: 2rem;
+    }
+
+
+}

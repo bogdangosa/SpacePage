@@ -64,3 +64,40 @@
     opacity: 1;
 }
 
+@media only screen and (max-width: 700px) {
+    .Destionation{
+        flex-direction: column;
+        align-items: center;
+        padding: 30% 10% 0 10%;
+        height: auto;
+    }
+    .planet-container{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 2rem;
+    }
+    .planet-container h2{
+        font-size: 1rem;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    .image-planet{
+        width: 60vw;
+        height: 60vw;
+    }
+    .planet-info-container{
+        width: 100%;
+    }
+    .planet-info-nav{
+        width: 100%;
+        font-size: 1rem;
+        justify-content: center;
+    }
+    .planet-info-link{
+        margin: 0 1rem;
+    }
+
+
+}

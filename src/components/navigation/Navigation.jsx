@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom'
 
 const Navigation = () =>{
     const [CurentPage,SetCurentPage]  = useState('Home');
+    const [HamburgerState, setHamburgerState] = useState(1);
     
     
     return(
@@ -13,7 +14,7 @@ const Navigation = () =>{
 
             <div className="nav-center-line"></div>
 
-            <div className="nav-links">
+            <div className={HamburgerState?"nav-links":"nav-links nav-visible"}>
                 <Link to="/" className="nav-link" onClick={()=>SetCurentPage("Home")}> 
                     <p><span className="bold-nr">00</span> Home</p> 
                     <div className={CurentPage=="Home"?"nav-link-line visible":"nav-link-line"}></div>
@@ -33,8 +34,13 @@ const Navigation = () =>{
                     <p><span className="bold-nr">03</span> Technology</p> 
                     <div className={CurentPage=="Technology"?"nav-link-line visible":"nav-link-line"}></div>
                 </Link>
-                
 
+            </div>
+
+            <div className={HamburgerState ? "hamburger" : "hamburger close-hamburger"} onClick={()=>setHamburgerState(!HamburgerState)}>
+                <div className="line line1"></div>
+                <div className="line line2"></div>
+                <div className="line line3"></div>
             </div>
         </div>
     );
