@@ -15,6 +15,7 @@ const Navigation = () =>{
             <div className="nav-center-line"></div>
 
             <div className={HamburgerState?"nav-links":"nav-links nav-visible"}>
+                
                 <Link to="/" className="nav-link" onClick={()=>SetCurentPage("Home")}> 
                     <p><span className="bold-nr">00</span> Home</p> 
                     <div className={CurentPage=="Home"?"nav-link-line visible":"nav-link-line"}></div>

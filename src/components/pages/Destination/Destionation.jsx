@@ -1,5 +1,6 @@
 import React,{useState} from "react";
-import {motion} from 'framer-motion'
+import { Routes,Route } from "react-router";
+import {AnimatePresence,motion} from 'framer-motion'
 import './Destionation.css';
 import moon_img from '../../../assets/destination/image-moon.png';
 import mars_img from '../../../assets/destination/image-mars.png';
@@ -14,45 +15,14 @@ const Destionation = () =>{
     "The only moon known to have a dense atmosphere other than Earth, Titan is a home away from home (just a few hundred degrees colder!). As a bonus, you get striking views of the Rings of Saturn.");
     const PlanetDistance = new Array("384,400 km","225 MIL. km","628 MIL. km","1.6 BIL. km");
     const PlanetTime = new Array("3 days","9 months","3 years","7 years");
+    const PlanetNames = new Array("Moon","Mars","Europa","Titan");
+    const PlanetImages = new Array(moon_img,mars_img,europa_img,titan_img);
 
 
-    const [CurentPlanetName,SetCurentPlanetName] = useState("Moon");
-    const [CurentPlanetDistance,SetCurentPlanetDistance] = useState(PlanetDistance[0]);
-    const [CurentPlanetTime,SetCurentPlanetTime] = useState(PlanetTime[0]);
-    const [CurentPlanetText,SetCurentPlanetText] = useState(PlanetText[0]);
-    const [CurentPlanetImage,SetCurentPlanetImage] = useState(moon_img);
+    const [CurentPlanetId,SetCurentPlanetId] = useState(0);
+
   
-    const UpadeData = (PlanetName) =>{
-        SetCurentPlanetName(PlanetName);
-        switch(PlanetName){
-            case "Moon":
-                SetCurentPlanetImage(moon_img);
-                SetCurentPlanetText(PlanetText[0]);
-                SetCurentPlanetDistance(PlanetDistance[0]);
-                SetCurentPlanetTime(PlanetTime[0]);
-                break;
-            case "Mars":
-                SetCurentPlanetImage(mars_img);
-                SetCurentPlanetText(PlanetText[1]);
-                SetCurentPlanetDistance(PlanetDistance[1]);
-                SetCurentPlanetTime(PlanetTime[1]);
-                break;
-            case "Europa":
-                SetCurentPlanetImage(europa_img);
-                SetCurentPlanetText(PlanetText[2]);
-                SetCurentPlanetDistance(PlanetDistance[2]);
-                SetCurentPlanetTime(PlanetTime[2]);
-                break;
-            case "Titan":
-                SetCurentPlanetImage(titan_img);
-                SetCurentPlanetText(PlanetText[3]);
-                SetCurentPlanetDistance(PlanetDistance[3]);
-                SetCurentPlanetTime(PlanetTime[3]);
-                break;
-        }
 
-    }  
-    
     const PageVariants = {
         in: {
             opacity:1,
@@ -63,10 +33,29 @@ const Destionation = () =>{
             y: "-100vh"
         }
     }
+
+    const ImgVariants = {
+        in: {
+            opacity:1,
+            x:0
+        },
+        out: {
+            opacity:0,
+            x: "-100vh"
+        }
+    }
+
     const PageTransition = {
         type: "tween",
         ease: "anticipate",
         duration: 1
+    }
+
+    const ImgTransition = {
+        type: "tween",
+        ease: "anticipate",
+        duration: 1,
+        delay:0.5
     }
     
     
@@ -79,37 +68,44 @@ const Destionation = () =>{
             transition={PageTransition}>
             <div className="planet-container">
                 <h2> <span className="grey">01</span> Pick your destination</h2>
-                <img src={CurentPlanetImage} className="image-planet"></img>
+                <AnimatePresence exitBeforeEnter>
+                    <motion.img src={PlanetImages[CurentPlanetId]} className="image-planet"
+                    initial="out"
+                    animate="in"
+                    exit="out"
+                    variants={ImgVariants}
+                    transition={ImgTransition}
+                    key={CurentPlanetId}></motion.img>
+                </AnimatePresence>
             </div>
             <div className="planet-info-container">
                 <div className="planet-info-nav">
-                    <a className="planet-info-link" onClick={()=>UpadeData("Moon")}>
+                    <a className="planet-info-link" onClick={()=>SetCurentPlanetId(0)}>
                         <p>moon</p>
-                        <div className={CurentPlanetName=="Moon" ? "planet-link-line visible":"planet-link-line"}></div>
+                        <div className={CurentPlanetId==0 ? "planet-link-line visible":"planet-link-line"}></div>
                     </a>
-                    <a className="planet-info-link"  onClick={()=>UpadeData("Mars")}>                        
+                    <a className="planet-info-link"  onClick={()=>SetCurentPlanetId(1)}>                        
                         <p>mars</p>
-                        <div className={CurentPlanetName=="Mars" ? "planet-link-line visible":"planet-link-line"}></div>
+                        <div className={CurentPlanetId==1 ? "planet-link-line visible":"planet-link-line"}></div>
                     </a>
-                    <a className="planet-info-link"  onClick={()=>UpadeData("Europa")}>
+                    <a className="planet-info-link"  onClick={()=>SetCurentPlanetId(2)}>
                         <p>europa</p>
-                        <div className={CurentPlanetName=="Europa" ? "planet-link-line visible":"planet-link-line"}></div>
+                        <div className={CurentPlanetId==2 ? "planet-link-line visible":"planet-link-line"}></div>
                     </a>
-                    <a className="planet-info-link"  onClick={()=>UpadeData("Titan")}>
+                    <a className="planet-info-link"  onClick={()=>SetCurentPlanetId(3)}>
                         <p>titan</p>
-                        <div className={CurentPlanetName=="Titan" ? "planet-link-line visible":"planet-link-line"}></div>
+                        <div className={CurentPlanetId==3 ? "planet-link-line visible":"planet-link-line"}></div>
                     </a>
                     
                 </div>
-
-                <Planet_Info name={CurentPlanetName} text={CurentPlanetText} distance={CurentPlanetDistance} time={CurentPlanetTime}/>
-
-
+                
+                <AnimatePresence exitBeforeEnter>
+                <Planet_Info name={PlanetNames[CurentPlanetId]} text={PlanetText[CurentPlanetId]} distance={PlanetDistance[CurentPlanetId]} time={PlanetTime[CurentPlanetId]} key={CurentPlanetId}/>
+                </AnimatePresence>
             </div>
-            
-
         </motion.div>
     );
 }
 
 export default Destionation;
+

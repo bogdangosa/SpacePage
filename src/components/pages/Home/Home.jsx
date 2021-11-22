@@ -1,5 +1,6 @@
 import React from "react";
 import {motion} from 'framer-motion'
+import {Link} from 'react-router-dom'
 import './Home.css';
 
 const Home = () =>{
@@ -35,11 +36,11 @@ const Home = () =>{
                 outer space and not hover kind of on the edge of it. Well sit back, and relax 
                 because we’ll give you a truly out of this world experience!</p>
             </div>
-            <div className="home-cta">
+            <Link to="/Destination"className="home-cta">
                 <div className="home-cta-bg"></div>
                 <p className="home-cta-text">Explore</p>
                 <div className="home-cta-hover"></div>
-            </div>
+            </Link>
         </motion.div>
     );
 }

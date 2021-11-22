@@ -48,6 +48,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
     cursor: pointer;
 }
 .home-cta-bg{    
@@ -119,6 +120,21 @@
         width: 40vw;
         height: 40vw;
     }
+    .home-cta-bg{
+        width: 40vw;
+        height: 40vw;
+    }
+    .home-cta:hover .home-cta-hover{
+        width: 60vw;
+        height: 60vw;
+    }
+
+    .home-cta-hover{
+        width: 40vw;
+        height: 40vw;   
+    }
+
+
     .home-cta-text{
         font-size: 1.5rem;
     }
